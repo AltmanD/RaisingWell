@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3岁以下婴幼儿健康养育照护操作指南</title>
+  <style>
+    :root {
+      --bg: #f7f1e8;
+      --paper: #fffdf8;
+      --paper-strong: #fff8ed;
+      --ink: #21313b;
+      --muted: #5d6b71;
+      --line: rgba(33, 49, 59, 0.12);
+      --brand: #bd6b3e;
+      --brand-deep: #8e4f2c;
+      --accent: #d7a447;
+      --accent-soft: rgba(215, 164, 71, 0.18);
+      --leaf: #506a52;
+      --leaf-soft: rgba(80, 106, 82, 0.12);
+      --warn: #a54f37;
+      --shadow: 0 18px 48px rgba(66, 42, 22, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --content-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(215, 164, 71, 0.22), transparent 28%),
+        radial-gradient(circle at right 18%, rgba(189, 107, 62, 0.14), transparent 22%),
+        linear-gradient(180deg, #f6efe3 0%, #f7f1e8 22%, #f4eee4 100%);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(100% - 32px, var(--content-width));
+      margin: 28px auto 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 44px 44px 36px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 248, 237, 0.96), rgba(255, 253, 248, 0.98)),
+        var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -110px;
+      background: radial-gradient(circle, rgba(215, 164, 71, 0.22), rgba(215, 164, 71, 0.02) 68%, transparent 72%);
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      left: -100px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(80, 106, 82, 0.12), rgba(80, 106, 82, 0.01) 70%, transparent 73%);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(189, 107, 62, 0.1);
+      color: var(--brand-deep);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      margin: 18px 0 14px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .meta-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: var(--brand-deep);
+      letter-spacing: 0.05em;
+    }
+
+    .meta-card span {
+      font-size: 16px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 253, 248, 0.9);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 12px 30px rgba(73, 50, 33, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .toc p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .toc-list {
+      display: grid;
+      gap: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(189, 107, 62, 0.38) transparent;
+      overscroll-behavior-x: contain;
+    }
+
+    .toc-list::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .toc-list::-webkit-scrollbar-thumb {
+      background: rgba(189, 107, 62, 0.32);
+      border-radius: 999px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc a:hover {
+      background: var(--accent-soft);
+      transform: translateX(3px);
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-card {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 253, 248, 0.96);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 12px 32px rgba(83, 58, 36, 0.08);
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 88px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--leaf-soft);
+      color: var(--leaf);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .section-card h2 {
+      margin: 14px 0 10px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: clamp(28px, 2.5vw, 36px);
+      line-height: 1.25;
+    }
+
+    .section-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .subsection {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(33, 49, 59, 0.12);
+    }
+
+    .subsection:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .subsection h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .subsection p,
+    .subsection ul,
+    .subsection ol {
+      margin: 10px 0 0;
+    }
+
+    .subsection ul,
+    .subsection ol {
+      padding-left: 20px;
+    }
+
+    .subsection li + li {
+      margin-top: 8px;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pill-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fffaf1, #fffdf9);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .pill-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--brand-deep);
+    }
+
+    .note,
+    .warning,
+    .source-note {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .note {
+      background: rgba(215, 164, 71, 0.11);
+    }
+
+    .warning {
+      background: rgba(165, 79, 55, 0.1);
+      border-color: rgba(165, 79, 55, 0.18);
+    }
+
+    .warning strong,
+    .note strong,
+    .source-note strong {
+      color: var(--brand-deep);
+    }
+
+    .source-note {
+      background: rgba(80, 106, 82, 0.09);
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(33, 49, 59, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+      background: #fffdfa;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    th {
+      background: rgba(80, 106, 82, 0.08);
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .core-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .core-list li {
+      padding: 18px 18px 18px 62px;
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff9f2, #fffefb);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .core-list li::before {
+      content: counter(core);
+      counter-increment: core;
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+      box-shadow: 0 8px 16px rgba(142, 79, 44, 0.22);
+    }
+
+    .core-list {
+      counter-reset: core;
+    }
+
+    .core-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--brand-deep);
+    }
+
+    .image-slot {
+      margin: 18px 0 0;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(215, 164, 71, 0.08), rgba(255, 255, 255, 0.6));
+      border: 1px dashed rgba(189, 107, 62, 0.38);
+    }
+
+    .image-slot-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: rgba(189, 107, 62, 0.12);
+      color: var(--brand-deep);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .image-slot-box {
+      display: grid;
+      place-items: center;
+      min-height: 180px;
+      padding: 20px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 248, 237, 0.92)),
+        repeating-linear-gradient(45deg, rgba(189, 107, 62, 0.06) 0, rgba(189, 107, 62, 0.06) 12px, transparent 12px, transparent 24px);
+      color: var(--brand-deep);
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .image-slot-box small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .image-slot figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .image-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .image-card {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .image-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--brand-deep);
+    }
+
+    .image-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(83, 58, 36, 0.08);
+    }
+
+    .stage-cards {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .stage-intro {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .stage-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(80, 106, 82, 0.06), rgba(255, 255, 255, 0.9));
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .stage-card h4 {
+      margin: 0 0 14px;
+      color: var(--brand-deep);
+      font-size: 20px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.9fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .stage-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stage-block {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .stage-block strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--leaf);
+      font-size: 15px;
+    }
+
+    .stage-block p {
+      margin: 0;
+    }
+
+    .stage-media {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stage-figure {
+      margin: 0;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .stage-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .stage-figure figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .check-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .footer-card {
+      padding: 24px 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(80, 106, 82, 0.12), rgba(255, 253, 248, 0.96));
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 10px 28px rgba(83, 58, 36, 0.08);
+    }
+
+    .footer-card h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .attachments {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .attachment-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    @media (max-width: 980px) {
+      .page-shell {
+        width: min(100% - 22px, var(--content-width));
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        padding: 16px;
+      }
+
+      .hero-meta,
+      .core-list,
+      .pill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc p {
+        display: none;
+      }
+
+      .toc-list {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        margin: 0 -2px;
+        scroll-snap-type: x proximity;
+      }
+
+      .toc a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(33, 49, 59, 0.08);
+        scroll-snap-align: start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        line-height: 1.68;
+      }
+
+      .page-shell {
+        width: min(100% - 14px, var(--content-width));
+        margin: 12px auto 32px;
+      }
+
+      .hero,
+      .section-card,
+      .footer-card {
+        padding: 18px 14px;
+        border-radius: 20px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero::before,
+      .hero::after {
+        opacity: 0.55;
+        transform: scale(0.82);
+      }
+
+      .eyebrow {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(28px, 8.8vw, 36px);
+        line-height: 1.22;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-meta {
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .meta-card {
+        padding: 14px;
+      }
+
+      .meta-card span {
+        font-size: 15px;
+      }
+
+      .main-grid,
+      .content {
+        gap: 14px;
+      }
+
+      .toc {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .toc h2 {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .toc a {
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+
+      .section-tag {
+        min-width: 0;
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .section-card h2,
+      .footer-card h2 {
+        margin: 12px 0 8px;
+        font-size: 24px;
+      }
+
+      .section-intro {
+        margin-bottom: 14px;
+      }
+
+      .subsection {
+        margin-top: 18px;
+        padding-top: 14px;
+      }
+
+      .subsection h3 {
+        margin-bottom: 10px;
+        font-size: 19px;
+        line-height: 1.35;
+      }
+
+      .subsection ul,
+      .subsection ol {
+        padding-left: 18px;
+      }
+
+      .pill-card,
+      .note,
+      .warning,
+      .source-note,
+      .check-item,
+      .attachment-item {
+        padding: 14px;
+        border-radius: 12px;
+      }
+
+      .image-slot {
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .image-pair {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .image-card {
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      .image-slot-badge {
+        margin-bottom: 10px;
+        font-size: 11px;
+      }
+
+      .stage-cards {
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .stage-intro {
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .stage-card {
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .stage-card h4 {
+        margin-bottom: 10px;
+        font-size: 17px;
+      }
+
+      .stage-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .stage-block,
+      .stage-figure {
+        padding: 10px;
+      }
+
+      .stage-media {
+        gap: 10px;
+      }
+
+      .image-slot-box {
+        min-height: 120px;
+        padding: 16px;
+        font-size: 16px;
+      }
+
+      .image-slot-box small,
+      .image-slot figcaption {
+        font-size: 13px;
+      }
+
+      .core-list {
+        gap: 10px;
+      }
+
+      .core-list li {
+        padding: 16px 14px 16px 52px;
+        border-radius: 16px;
+      }
+
+      .core-list li::before {
+        left: 14px;
+        top: 16px;
+        width: 28px;
+        height: 28px;
+      }
+
+      .table-wrap {
+        margin-top: 12px;
+        overflow: visible;
+        border: 0;
+        background: transparent;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      table {
+        min-width: 0;
+        background: transparent;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: grid;
+        gap: 10px;
+      }
+
+      tr {
+        padding: 12px 12px 6px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(33, 49, 59, 0.08);
+      }
+
+      td {
+        display: grid;
+        grid-template-columns: minmax(72px, 88px) minmax(0, 1fr);
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(33, 49, 59, 0.12);
+      }
+
+      td:last-child {
+        border-bottom: 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        color: var(--brand-deep);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page-shell {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .section-card,
+      .footer-card,
+      .toc {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        background: #fff;
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        break-inside: avoid;
+      }
+
+      .section-card,
+      .footer-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="eyebrow">家庭照护参考文档</div>
+      <h1>3岁以下婴幼儿健康养育照护操作指南</h1>
+      <p>本页面依据《3岁以下婴幼儿健康养育照护指南（试行）》整理，面向家庭场景进行信息重排。重点突出日常照护、发育监测、营养喂养、交流玩耍和风险预防，便于连续阅读、打印留存与手册化使用。</p>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <strong>适用对象</strong>
+          <span>0～3岁婴幼儿及主要养育人</span>
+        </div>
+        <div class="meta-card">
+          <strong>使用方式</strong>
+          <span>日常查阅、家庭照护、健康宣教</span>
+        </div>
+        <div class="meta-card">
+          <strong>内容结构</strong>
+          <span>7大主题模块 + 附件索引</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <aside class="toc">
+        <h2>目录导航</h2>
+        <p>左侧适合快速定位章节，右侧正文保留完整内容。页面同时适配桌面阅读、手机浏览和打印输出。</p>
+        <nav class="toc-list">
+          <a href="#core">一、核心理念</a>
+          <a href="#growth">二、生长发育监测</a>
+          <a href="#nutrition">三、营养与喂养</a>
+          <a href="#play">四、交流与玩耍</a>
+          <a href="#care">五、生活照护</a>
+          <a href="#safety">六、伤害预防</a>
+          <a href="#health">七、常见健康问题防控及照护</a>
+          <a href="#attachments">附件索引</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="section-card" id="core">
+          <span class="section-tag">核心理念</span>
+          <h2>一、核心理念（8条）</h2>
+          <p class="section-intro">养育照护的核心，不只是“照看”，而是在安全、稳定、回应性良好的环境中，支持婴幼儿的全面发展。</p>
+          <ol class="core-list">
+            <li>
+              <strong>重视早期全面发展</strong>
+              关注体格、运动、认知、语言、情感及社会适应能力的协同发展。
+            </li>
+            <li>
+              <strong>遵循生长发育规律</strong>
+              尊重个体差异，不盲目攀比，定期监测，早发现、早诊断、早干预。
+            </li>
+            <li>
+              <strong>给予恰当积极的回应</strong>
+              关注婴幼儿的表情、声音、动作和情绪，及时回应其需求。
+            </li>
+            <li>
+              <strong>培养自主与自我调节</strong>
+              在安全前提下鼓励自由探索，建立规律作息，培养自理能力。
+            </li>
+            <li>
+              <strong>注重亲子陪伴和玩耍</strong>
+              交流和玩耍是促进早期发展的核心措施。
+            </li>
+            <li>
+              <strong>将学习融入养育全过程</strong>
+              利用家庭和社会资源，在日常环节中提供早期学习机会。
+            </li>
+            <li>
+              <strong>创建良好家庭环境</strong>
+              营造温馨和睦的家庭氛围，提供整洁、安全、有趣的活动空间。
+            </li>
+            <li>
+              <strong>提高自身养育素养</strong>
+              养育人应主动学习育儿知识，同时关注自身身心健康。
+            </li>
+          </ol>
+        </section>
+
+        <section class="section-card" id="growth">
+          <span class="section-tag">发育监测</span>
+          <h2>二、生长发育监测</h2>
+          <p class="section-intro">规律监测是发现问题、评估趋势和及时干预的基础。家庭可根据固定节点、关键指标和预警征象进行持续观察。</p>
+
+          <div class="subsection">
+            <h3>2.1 定期健康检查时间表</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>年龄段</th>
+                    <th>检查月龄</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="年龄段">1岁以内</td>
+                    <td data-label="检查月龄">出院后1周内、满月、3月龄、6月龄、8月龄、12月龄</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄段">1～3岁</td>
+                    <td data-label="检查月龄">18月龄、24月龄、30月龄、36月龄</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>2.2 体格生长家庭监测</h3>
+            <p>使用生长发育监测图进行家庭自我监测。若体重、身长低于第3百分位或高于第97百分位，或生长速度明显平缓、下降或突增，应及时就诊。</p>
+            <!-- IMAGE_SLOT: GROWTH_CHART_0_3 / 男童=assets/0-3男童生长标准曲线图.png / 女童=assets/0-3女童生长标准曲线图.png -->
+            <figure class="image-slot">
+              <div class="image-pair">
+                <div class="image-card">
+                  <strong>0～3岁男童生长标准曲线图</strong>
+                  <img src="assets/0-3男童生长标准曲线图.png" alt="0～3岁男童生长标准曲线图" loading="lazy">
+                </div>
+                <div class="image-card">
+                  <strong>0～3岁女童生长标准曲线图</strong>
+                  <img src="assets/0-3女童生长标准曲线图.png" alt="0～3岁女童生长标准曲线图" loading="lazy">
+                </div>
+              </div>
+              <figcaption>可根据孩子性别参照相应曲线，结合身长、体重的连续变化观察生长趋势。</figcaption>
+            </figure>
+          </div>
+
+          <div class="subsection">
+            <h3>2.3 心理行为发育预警征象筛查表</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>年龄</th>
+                    <th>预警征象（任一条阳性提示发育偏异可能）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="年龄"><strong>3月</strong></td>
+                    <td data-label="预警征象">对很大声音没有反应；逗引时不发音或不会微笑；不注视人脸，不追视移动人或物品；俯卧时不会抬头。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>6月</strong></td>
+                    <td data-label="预警征象">发音少，不会笑出声；不会伸手抓物；紧握拳松不开；不能扶坐。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>8月</strong></td>
+                    <td data-label="预警征象">听到声音无应答；不会区分生人和熟人；双手间不会传递玩具；不会独坐。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>12月</strong></td>
+                    <td data-label="预警征象">呼唤名字无反应；不会模仿“再见”或“欢迎”动作；不会用拇食指对捏小物品；不会扶物站立。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>18月</strong></td>
+                    <td data-label="预警征象">不会有意识叫“爸爸”或“妈妈”；不会按要求指人或物；与人无目光交流；不会独走。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>24月</strong></td>
+                    <td data-label="预警征象">不会说3个物品的名称；不会按吩咐做简单事情；不会用勺吃饭；不会扶栏上楼梯或台阶。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>30月</strong></td>
+                    <td data-label="预警征象">不会说2～3个字的短语；兴趣单一、刻板；不会示意大小便；不会跑。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>36月</strong></td>
+                    <td data-label="预警征象">不会说自己的名字；不会玩“拿棍当马骑”等假想游戏；不会模仿画圆；不会双脚跳。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>4岁</strong></td>
+                    <td data-label="预警征象">不会说带形容词的句子；不能按要求等待或轮流；不会独立穿衣；不会单脚站立。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>5岁</strong></td>
+                    <td data-label="预警征象">不能简单叙说事情经过；不知道自己的性别；不会用筷子吃饭；不会单脚跳。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="年龄"><strong>6岁</strong></td>
+                    <td data-label="预警征象">不会表达自己的感受或想法；不会玩角色扮演的集体游戏；不会画方形；不会奔跑。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>2.4 眼病防控</h3>
+            <ul>
+              <li>定期接受眼保健和视力检查，完成各年龄阶段眼病筛查及“远视储备量”监测。</li>
+              <li>保证充足睡眠、均衡膳食和户外活动，减少持续近距离用眼。</li>
+              <li><strong>2岁以内：</strong>不建议观看或使用电子屏幕。</li>
+              <li><strong>2岁以上：</strong>电子屏幕每天累计不超过1小时，每次不超过20分钟。</li>
+            </ul>
+            <div class="warning">
+              <strong>出现以下症状应及时就诊：</strong>
+              不能追视、对外界反应差；看东西时凑近、眯眼、皱眉、斜眼、歪头；瞳孔区发白、畏光、流泪、眼部发红或有脓性分泌物。
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>2.5 听力障碍预防</h3>
+            <ul>
+              <li>主动接受耳及听力保健服务，观察儿童对声音的反应和语言发育情况。</li>
+              <li>远离强声或持续噪声环境，避免使用耳机。</li>
+              <li>洗澡或游泳时防止呛水和耳部进水；不要自行清洁外耳道。</li>
+              <li>避免头部、耳部外伤和外耳道异物。</li>
+              <li>患腮腺炎或脑膜炎后，注意观察听力变化。</li>
+            </ul>
+            <div class="warning">
+              <strong>出现以下情形应及时就诊：</strong>
+              耳部及耳周皮肤异常；外耳道有分泌物或异常气味；拍打或抓挠耳部；耳痒、耳痛、耳胀；对声音反应迟钝或语言发育迟缓；头常往一侧歪或对呼唤无回应。
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>2.6 龋病防控</h3>
+            <ul>
+              <li><strong>第一颗乳牙萌出即开始清洁牙齿</strong>，根据月龄选用纱布、指套牙刷、儿童常规牙刷。</li>
+              <li>使用儿童含氟牙膏，用量为米粒大小。</li>
+              <li>每次进食后喂白开水或清洁口腔。避免餐间摄入含糖饮食，饮水以白水为主。</li>
+              <li><strong>禁止：</strong>将食物嚼碎后喂婴幼儿、与婴幼儿共用餐具。</li>
+              <li><strong>第一次口腔检查：</strong>第一颗乳牙萌出至12月龄之间，之后每3～6个月复查。</li>
+              <li>患龋中、低风险：每年涂氟2次；高风险：每年涂氟4次。</li>
+              <li>乳磨牙深窝沟可行窝沟封闭。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-card" id="nutrition">
+          <span class="section-tag">营养喂养</span>
+          <h2>三、营养与喂养</h2>
+          <p class="section-intro">科学喂养强调顺应发育节律、保障营养密度，并通过稳定、愉快的进餐体验帮助婴幼儿形成长期健康的饮食习惯。</p>
+
+          <div class="subsection">
+            <h3>3.1 母乳喂养</h3>
+            <ul>
+              <li>出生后尽早皮肤接触、早吸吮、早开奶。</li>
+              <li>6个月内纯母乳喂养，不需加水和其他食物。按需哺乳，每日8～10次以上。</li>
+              <li>促进泌乳：婴儿充分吸吮是最有效方法；母亲心情愉悦、睡眠充足、营养均衡。</li>
+              <li>早产儿：首选母乳喂养，提倡袋鼠式护理。胎龄&lt;34周或出生体重&lt;2000克者，遵医嘱添加母乳强化剂。</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>3.2 微量营养素补充</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>类型</th>
+                    <th>维生素D（每天）</th>
+                    <th>铁剂</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="类型">足月儿</td>
+                    <td data-label="维生素D">生后数日起 400 IU/天</td>
+                    <td data-label="铁剂">纯母乳喂养者 4～6 月龄酌情补铁</td>
+                  </tr>
+                  <tr>
+                    <td data-label="类型">早产/低出生体重儿</td>
+                    <td data-label="维生素D">生后数日起 800～1000 IU/天，3个月后改为 400 IU/天</td>
+                    <td data-label="铁剂">生后2～4周起 2 mg/(kg·天)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note">
+              <strong>补充提示：</strong>
+              钙、维生素A等可酌情补充；补充量需同时考虑配方奶及母乳强化剂中的含量。
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>3.3 辅食添加</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>要点</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="要点"><strong>添加时间</strong></td>
+                    <td data-label="说明">足月儿6月龄起；早产儿校正胎龄4～6月龄时。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>添加原则</strong></td>
+                    <td data-label="说明">每次只加一种新食物，由少到多、由一种到多种；从富含铁的泥糊状食物开始，每引入一种适应2～3天。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>母乳延续</strong></td>
+                    <td data-label="说明">可继续母乳喂养至2岁及以上。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>1岁以内</strong></td>
+                    <td data-label="说明">不加盐、糖和调味品，保持原味。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>1岁以后</strong></td>
+                    <td data-label="说明">少盐、少糖。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pill-grid">
+              <div class="pill-card">
+                <strong>辅食食材7大类</strong>
+                ①谷薯类 ②动物性食物（鱼、禽、肉及内脏） ③蛋类 ④奶类和奶制品 ⑤豆类和坚果制品 ⑥富含维生素A的蔬果 ⑦其他蔬果
+              </div>
+              <div class="pill-card">
+                <strong>每日建议</strong>
+                每日辅食种类不少于4种，且至少包括1种动物性食物、1种蔬菜、1种谷薯类。
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>3.4 各月龄辅食添加要点</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>月龄</th>
+                    <th>频次（每天）</th>
+                    <th>每餐量</th>
+                    <th>食物质地</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="月龄">6月龄起</td>
+                    <td data-label="频次">从1次渐增至2次</td>
+                    <td data-label="每餐量">从尝一尝渐增至2～3小勺</td>
+                    <td data-label="食物质地">泥糊状（稠粥、肉泥、菜泥）</td>
+                  </tr>
+                  <tr>
+                    <td data-label="月龄">6～9月龄</td>
+                    <td data-label="频次">1～2次</td>
+                    <td data-label="每餐量">2～3勺渐增至半碗（250ml碗）</td>
+                    <td data-label="食物质地">稠粥、糊糊、捣烂、煮烂的家庭食物</td>
+                  </tr>
+                  <tr>
+                    <td data-label="月龄">9～12月龄</td>
+                    <td data-label="频次">2～3次</td>
+                    <td data-label="每餐量">半碗</td>
+                    <td data-label="食物质地">细细切碎的家庭食物、手指食物、条状食物</td>
+                  </tr>
+                  <tr>
+                    <td data-label="月龄">12～24月龄</td>
+                    <td data-label="频次">3次正餐 + 2次加餐</td>
+                    <td data-label="每餐量">3/4碗到1整碗</td>
+                    <td data-label="食物质地">软烂的家庭食物</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>3.5 培养饮食习惯</h3>
+            <ul>
+              <li>1岁以后逐步过渡到独立进食，营造轻松愉快的进食环境，<strong>引导而不强迫</strong>。</li>
+              <li>安排与家人一起就餐，鼓励自主进食。关注饥饱信号，及时回应。</li>
+              <li>不以食物作为奖励和惩罚。</li>
+              <li>进餐时不看电视、手机，每次进餐控制在20分钟左右，最长不超过30分钟。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-card" id="play">
+          <span class="section-tag">交流玩耍</span>
+          <h2>四、交流与玩耍</h2>
+          <p class="section-intro">高质量互动是早期发展最重要的环境因素之一。身体接触、语言回应和共同玩耍，都是促进依恋、安全感和学习能力的关键路径。</p>
+
+          <div class="subsection">
+            <h3>4.1 亲子交流的三种方式</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>方式</th>
+                    <th>做法</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="方式"><strong>身体接触</strong></td>
+                    <td data-label="做法">抚摸、拥抱等亲密接触，建立依恋。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="方式"><strong>肢体语言</strong></td>
+                    <td data-label="做法">通过眼神、表情、动作表达关注、喜爱、鼓励和安慰。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="方式"><strong>语言交流</strong></td>
+                    <td data-label="做法">从简单语音到单词、短语、完整语句，讲身边事物，讲故事、读绘本、唱儿歌。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>4.2 玩耍运动</h3>
+            <ul>
+              <li><strong>自由玩耍：</strong>利用室内外各种条件，不拘形式地玩耍，关注好奇心，重视陪伴、互动和示范。</li>
+              <li><strong>亲子游戏：</strong>念儿歌、躲猫猫、拍手游戏、照镜子、指认身体部位等；提倡父亲参与，鼓励用日常物品或自制玩具。</li>
+              <li><strong>运动锻炼：</strong>提供爬、走、跑、跳等大动作，以及抓握、垒高、涂鸦等精细动作练习机会。</li>
+            </ul>
+            <div class="note">
+              <strong>活动节律：</strong>
+              避免久坐超过1小时。幼儿每天身体活动至少3小时，其中户外活动至少2小时，特殊天气可酌情减少。
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>4.3 各年龄段亲子交流与玩耍要点</h3>
+            <p class="stage-intro">不同月龄阶段的互动重点并不相同。可结合下列要点与示意图，在喂养、清醒陪伴、游戏和户外活动中自然开展交流与互动。</p>
+            <div class="stage-cards">
+              <article class="stage-card">
+                <h4>0～1月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>注视新生儿眼睛，温柔说话，尤其在哺乳和照护时，让其看脸、听声。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>让其看、听，自由活动四肢；轻柔抚摸和怀抱，亲密皮肤接触更好。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流0-1.png" alt="0～1月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍0-1.png" alt="0～1月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>1～3月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>喂奶或清醒时对其笑，模仿其声音说话交流。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>看、听、接触养育人，自由活动四肢；帮助俯卧、抬头；用红球或圆环移动让其看、触摸。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流1-3.png" alt="1～3月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍1-3.png" alt="1～3月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>3～6月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>经常说话、逗笑，模仿其声音、表情和动作交流。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>多俯卧、抬头，帮其翻身；让其伸手够、抓握玩具；可用不同质地的玩具。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流3-6.png" alt="3～6月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍3-6.png" alt="3～6月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>6～9月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>对其声音和兴趣给予回应，叫名字观察反应，玩“躲猫猫”，说看到的人或物品。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>练习坐，床上翻滚；提供安全家庭物品让其抓握、传递、敲打。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流6-9.png" alt="6～9月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍6-9.png" alt="6～9月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>9～12月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>教认家中物品、人及身体部位；说话、唱歌、结合场景边说边做手势。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>鼓励爬行、站立和扶走；练习拇食指捏小物品；把玩具放布下玩“藏猫猫”。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流9-12.png" alt="9～12月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍9-12.png" alt="9～12月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>12～18月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>问简单问题，回应其说话；用简单指令调动活动，鼓励称呼周围的人，看物品和图片说出名称。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>鼓励独自行走、蹲下和站起，握笔涂画；玩套叠杯、堆叠和容器拿放游戏。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流12-18.png" alt="12～18月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍12-18.png" alt="12～18月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>18～24月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>多说话，提问并耐心等待回答，用清晰正确发音回应；边看自然、图画书或物品边交谈。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>多户外活动，扶支撑物上下台阶，扔球、踢球，翻书、拧瓶盖；玩模仿性游戏。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流18-24.png" alt="18～24月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍18-24.png" alt="18～24月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stage-card">
+                <h4>24～36月</h4>
+                <div class="stage-grid">
+                  <div class="stage-copy">
+                    <div class="stage-block">
+                      <strong>交流要点</strong>
+                      <p>一起看图画书、讲故事、说儿歌，讨论图画书内容；教说姓名、性别，认识形状、颜色和用途。</p>
+                    </div>
+                    <div class="stage-block">
+                      <strong>玩耍要点</strong>
+                      <p>练习单脚站、双脚蹦跳、踢球；培养洗手、吃饭、扣扣子、穿鞋等能力；与同伴玩简单群体游戏。</p>
+                    </div>
+                  </div>
+                  <div class="stage-media">
+                    <figure class="stage-figure">
+                      <img src="assets/交流24-36.png" alt="24～36月交流示意图" loading="lazy">
+                      <figcaption>交流示意</figcaption>
+                    </figure>
+                    <figure class="stage-figure">
+                      <img src="assets/玩耍24-36.png" alt="24～36月玩耍示意图" loading="lazy">
+                      <figcaption>玩耍示意</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>4.4 社交体验</h3>
+            <ul>
+              <li><strong>家庭活动：</strong>让幼儿参与力所能及的家务，如整理衣物、玩具等，通过走亲访友、家庭聚会丰富生活体验。</li>
+              <li><strong>同伴交往：</strong>经常创造与同龄伙伴交流和玩耍的机会，发展关心、分享、合作等亲社会行为，对积极行为及时肯定。</li>
+              <li><strong>情绪支持：</strong>关注情绪变化，通过抚摸、拥抱等方式缓解不良情绪。</li>
+              <li><strong>社区活动：</strong>充分利用公园、儿童活动中心、游乐园等资源，帮助儿童接触自然和社会环境。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-card" id="care">
+          <span class="section-tag">生活照护</span>
+          <h2>五、生活照护</h2>
+          <p class="section-intro">生活照护既包括卫生、睡眠、衣着等基础环节，也包括通过稳定节奏和温和引导帮助儿童建立安全感与自理能力。</p>
+
+          <div class="subsection">
+            <h3>5.1 居家环境</h3>
+            <div class="pill-grid">
+              <div class="pill-card">
+                <strong>家庭氛围</strong>
+                温馨、和谐、愉快。家人保持一致的养育观念，杜绝忽视、虐待和一切形式的家庭暴力。
+              </div>
+              <div class="pill-card">
+                <strong>家庭设施</strong>
+                整洁、舒适，提供适合年龄的餐具、水杯、儿童便器，以及适当的玩具、图片和图书。
+              </div>
+              <div class="pill-card">
+                <strong>儿童空间</strong>
+                设置相对固定且安全的活动区域，符合婴幼儿特点和当前发育水平。
+              </div>
+              <div class="pill-card">
+                <strong>照护原则</strong>
+                环境安全、节律稳定、回应及时，让儿童在可预期的空间中自由探索。
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>5.2 日常护理</h3>
+            <ul>
+              <li><strong>衣着：</strong>合格、舒适、清洁、安全。穿衣和换尿布时给予回应和互动，逐步引导自主穿衣。</li>
+              <li><strong>盥洗：</strong>经常洗澡，且养育人全程在场。可借助儿歌、故事示范正确洗手、洗脸、刷牙方法。</li>
+              <li><strong>大小便：</strong>关注排便前动作和表情，固定排便场所，逐步培养表达方式，2岁后逐渐减少白天用尿布。</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>5.3 推拿保健</h3>
+            <p>学习摩腹、捏脊等常见推拿保健方法，对婴幼儿进行日常推拿保健。</p>
+          </div>
+
+          <div class="subsection">
+            <h3>5.4 睡眠</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>要点</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="要点"><strong>环境</strong></td>
+                    <td data-label="说明">安静、空气新鲜，室温20℃～25℃；白天不过度遮光，夜晚睡后熄灯；卧室不放电视等视频类产品。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>时长</strong></td>
+                    <td data-label="说明">婴儿期 12～17小时/天，幼儿期 10～14小时/天；夜间睡眠应达8小时以上。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="要点"><strong>入睡</strong></td>
+                    <td data-label="说明">培养自主入睡习惯，敏感识别睡眠信号，及时让其独立入睡；<strong>避免抱睡、摇睡、含乳头睡</strong>。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card" id="safety">
+          <span class="section-tag">伤害预防</span>
+          <h2>六、伤害预防</h2>
+          <p class="section-intro">婴幼儿伤害预防的核心是“主动防范”，包括近距离看护、安全环境布置和照护者的应急能力建设。</p>
+
+          <div class="subsection">
+            <h3>6.1 加强看护</h3>
+            <div class="checklist">
+              <div class="check-item"><strong>专心看护：</strong>不看手机等电子设备，不从事其他非必要活动。多人在场时，明确一人负责照护。</div>
+              <div class="check-item"><strong>近距离看护：</strong>在水中、水边、高处或有动物等情境下，保持伸手可及的距离。</div>
+              <div class="check-item"><strong>看护禁忌：</strong>不让婴幼儿独处，不与其做不安全游戏，不让未成年人看护。</div>
+              <div class="check-item"><strong>行为示范：</strong>养育人遵守安全规则，教会幼儿识别伤害风险，帮助建立安全行为习惯。</div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>6.2 营造安全环境</h3>
+            <ul>
+              <li><strong>清除隐患：</strong>随时排查和清除尖锐物品、可入口鼻耳的小件物品和食物、破损玩具、不安全设备、电器、药物、化学品等。</li>
+              <li><strong>隔离危险：</strong>楼梯和厨房安装护栏或门栏；药物、化学品、热物、刀具、电源、电器放在儿童无法接触的固定位置；水池、沟渠安装护栏；水桶、水盆、井加盖。</li>
+              <li><strong>使用安全产品：</strong>选择有安全质量认证的适龄玩具和儿童用品，使用儿童安全座椅、家具防护角、窗户锁等。</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>6.3 紧急处置（养育人应主动学习）</h3>
+            <ul>
+              <li><strong>心肺复苏：</strong>掌握婴幼儿意识、呼吸、心跳的判断方法和心肺复苏技术。</li>
+              <li><strong>常见伤害处置：</strong>学习院前止血、包扎、固定、搬运技术；掌握气道异物梗阻的处置；掌握烧烫伤后的冲洗、浸泡、去除伤处衣物和防感染方法。</li>
+              <li><strong>虐待暴力：</strong>怀疑婴幼儿遭受虐待或暴力时，及时寻求专业部门援助，并向公安机关报告。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-card" id="health">
+          <span class="section-tag">健康问题</span>
+          <h2>七、常见健康问题防控及照护</h2>
+          <p class="section-intro">对高危儿、营养性疾病、常见传染病和危重症信号的识别，决定了家庭照护能否及时转入专业医疗支持。</p>
+
+          <div class="subsection">
+            <h3>7.1 高危儿</h3>
+            <p>早产儿、低出生体重儿、有出生并发症的新生儿等，需及时就诊，并在医生指导下进行家庭干预和护理。</p>
+          </div>
+
+          <div class="subsection">
+            <h3>7.2 营养性疾病</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>疾病</th>
+                    <th>预防与处置</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="疾病"><strong>缺铁性贫血</strong></td>
+                    <td data-label="预防与处置">6月龄起及时添加富含铁的食物；发生贫血按医嘱补充铁剂。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="疾病"><strong>营养不良</strong></td>
+                    <td data-label="预防与处置">合理添加辅食，保障能量、蛋白质等营养素；连续2次体重增长不良或营养改善3～6个月后身长仍增长不良者，需专科会诊。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="疾病"><strong>维生素D缺乏性佝偻病</strong></td>
+                    <td data-label="预防与处置">发病高峰3～18月龄；出生数日后即开始补维生素D，充分户外活动暴露身体部位；发生佝偻病按医嘱治疗。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>7.3 传染病</h3>
+            <p>常见传染病包括幼儿急疹、风疹、手足口病、水痘、流感等。</p>
+            <ul>
+              <li>及时接种疫苗，保持室内空气流通，注意个人卫生，积极运动锻炼。</li>
+              <li>流行期间不去人多聚集处。</li>
+              <li>患病期间遵医嘱治疗，做好隔离和清洁消毒，注意休息和营养，做好口腔、皮肤护理。</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3>7.4 危重症识别（出现以下任一症状立即就诊）</h3>
+            <div class="warning">
+              <ul>
+                <li>精神状态较平时差，进食量明显减少，不能喝水或吃奶。</li>
+                <li>抽搐或囟门凸起。</li>
+                <li>频繁呕吐。</li>
+                <li>呼吸加快（&lt;2月龄超过60次/分、2～12月龄超过50次/分、2～3岁超过40次/分）。</li>
+                <li>鼻翼扇动、胸凹陷等呼吸困难，呼吸暂停伴紫绀。</li>
+                <li>腹泻水样便持续2～3天，大便带血，小便明显减少或无尿。</li>
+                <li>眼窝凹陷或囟门凹陷，皮肤缺乏弹性，哭时泪少。</li>
+                <li>脐部脓性分泌物多，脐周皮肤发红和肿胀。</li>
+                <li>新生儿皮肤严重黄染（手掌或足底）、皮肤脓疱。</li>
+                <li>眼或耳部有脓性分泌物。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="footer-card" id="attachments">
+          <h2>索引</h2>
+          <div class="source-note">
+            <strong>内容来源：</strong>
+            国家卫生健康委《3岁以下婴幼儿健康养育照护指南（试行）》。
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
