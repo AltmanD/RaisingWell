@@ -1,0 +1,1678 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>儿童学习画像与培养框架</title>
+  <style>
+    :root {
+      --bg: #f7f1e8;
+      --paper: #fffdf8;
+      --paper-strong: #fff8ed;
+      --ink: #21313b;
+      --muted: #5d6b71;
+      --line: rgba(33, 49, 59, 0.12);
+      --brand: #bd6b3e;
+      --brand-deep: #8e4f2c;
+      --accent: #d7a447;
+      --accent-soft: rgba(215, 164, 71, 0.18);
+      --leaf: #506a52;
+      --leaf-soft: rgba(80, 106, 82, 0.12);
+      --warn: #a54f37;
+      --shadow: 0 18px 48px rgba(66, 42, 22, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --content-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(215, 164, 71, 0.22), transparent 28%),
+        radial-gradient(circle at right 18%, rgba(189, 107, 62, 0.14), transparent 22%),
+        linear-gradient(180deg, #f6efe3 0%, #f7f1e8 22%, #f4eee4 100%);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(100% - 32px, var(--content-width));
+      margin: 28px auto 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 44px 44px 36px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 248, 237, 0.96), rgba(255, 253, 248, 0.98)),
+        var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -110px;
+      background: radial-gradient(circle, rgba(215, 164, 71, 0.22), rgba(215, 164, 71, 0.02) 68%, transparent 72%);
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      left: -100px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(80, 106, 82, 0.12), rgba(80, 106, 82, 0.01) 70%, transparent 73%);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(189, 107, 62, 0.1);
+      color: var(--brand-deep);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      margin: 18px 0 14px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: 0;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .meta-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: var(--brand-deep);
+      letter-spacing: 0.05em;
+    }
+
+    .meta-card span {
+      font-size: 16px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 22px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 253, 248, 0.9);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 12px 30px rgba(73, 50, 33, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .toc p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .toc-list {
+      display: grid;
+      gap: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(189, 107, 62, 0.38) transparent;
+      overscroll-behavior-x: contain;
+    }
+
+    .toc-list::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .toc-list::-webkit-scrollbar-thumb {
+      background: rgba(189, 107, 62, 0.32);
+      border-radius: 999px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc a:hover {
+      background: var(--accent-soft);
+      transform: translateX(3px);
+    }
+
+    .toc-group {
+      padding: 0;
+      border-radius: 12px;
+      background: transparent;
+      border: 0;
+    }
+
+    .toc-group summary {
+      cursor: pointer;
+      padding: 11px 12px;
+      border-radius: 12px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      list-style-position: outside;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc-group summary:hover {
+      background: var(--accent-soft);
+      transform: translateX(3px);
+    }
+
+    .toc-sublist {
+      display: grid;
+      gap: 6px;
+      margin-top: 6px;
+      padding-left: 10px;
+    }
+
+    .toc a.toc-child {
+      margin-left: 10px;
+      padding: 7px 10px 7px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      border-left: 2px solid rgba(189, 107, 62, 0.18);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .toc-group .toc-child {
+      margin-left: 0;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-card {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 253, 248, 0.96);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 12px 32px rgba(83, 58, 36, 0.08);
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 88px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--leaf-soft);
+      color: var(--leaf);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .section-card h2 {
+      margin: 14px 0 10px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: clamp(28px, 2.5vw, 36px);
+      line-height: 1.25;
+    }
+
+    .section-intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .subsection {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(33, 49, 59, 0.12);
+    }
+
+    .subsection:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .subsection h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .subsection p,
+    .subsection ul,
+    .subsection ol {
+      margin: 10px 0 0;
+    }
+
+    .subsection ul,
+    .subsection ol {
+      padding-left: 20px;
+    }
+
+    .subsection li + li {
+      margin-top: 8px;
+    }
+
+    .quote-box {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--brand);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: rgba(189, 107, 62, 0.08);
+      color: var(--brand-deep);
+      font-weight: 700;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pill-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fffaf1, #fffdf9);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .pill-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--brand-deep);
+    }
+
+    .note,
+    .warning,
+    .source-note {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .note {
+      background: rgba(215, 164, 71, 0.11);
+    }
+
+    .warning {
+      background: rgba(165, 79, 55, 0.1);
+      border-color: rgba(165, 79, 55, 0.18);
+    }
+
+    .source-note {
+      background: rgba(80, 106, 82, 0.09);
+    }
+
+    .warning strong,
+    .note strong,
+    .source-note strong {
+      color: var(--brand-deep);
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(33, 49, 59, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      background: #fffdfa;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    th {
+      background: rgba(80, 106, 82, 0.08);
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .core-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: core;
+    }
+
+    .core-list li {
+      padding: 18px 18px 18px 62px;
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff9f2, #fffefb);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .core-list li::before {
+      content: counter(core);
+      counter-increment: core;
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+      box-shadow: 0 8px 16px rgba(142, 79, 44, 0.22);
+    }
+
+    .core-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--brand-deep);
+    }
+
+    .stage-cards {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .stage-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(80, 106, 82, 0.06), rgba(255, 255, 255, 0.9));
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .stage-card h3 {
+      margin: 0 0 12px;
+      color: var(--brand-deep);
+      font-size: 20px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    .case-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .case-card p {
+      margin: 8px 0 0;
+    }
+
+    .case-card strong {
+      color: var(--brand-deep);
+    }
+
+    .submodule-card {
+      border-left: 5px solid rgba(189, 107, 62, 0.32);
+      background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 248, 237, 0.9)),
+        var(--paper);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .evidence-card {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .evidence-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--leaf);
+    }
+
+    .citation-badge,
+    .cite {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      min-height: 24px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      color: var(--brand-deep);
+      background: rgba(189, 107, 62, 0.12);
+      border: 1px solid rgba(189, 107, 62, 0.16);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .citation-badge:hover,
+    .cite:hover {
+      background: rgba(189, 107, 62, 0.18);
+    }
+
+    .evidence-toggle,
+    .references-toggle {
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .evidence-toggle {
+      padding: 8px 10px;
+    }
+
+    .references-toggle {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .evidence-toggle summary,
+    .references-toggle summary {
+      cursor: pointer;
+      color: var(--brand-deep);
+      font-weight: 700;
+      list-style-position: outside;
+    }
+
+    .evidence-toggle summary {
+      font-size: 14px;
+    }
+
+    .evidence-toggle-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 12px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+    }
+
+    .source-list a {
+      color: var(--brand-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    .fillable-table .blank-cell {
+      min-height: 54px;
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(180deg, transparent 0, transparent 25px, rgba(33, 49, 59, 0.18) 26px),
+        rgba(255, 255, 255, 0.72);
+    }
+
+    .fillable-table .large-blank {
+      min-height: 84px;
+    }
+
+    .fillable-table td.blank-cell::before {
+      content: "";
+      display: none;
+    }
+
+    .safety-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .safety-list li {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(165, 79, 55, 0.08);
+      border: 1px solid rgba(165, 79, 55, 0.18);
+    }
+
+    .safety-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--warn);
+    }
+
+    .footer-card {
+      padding: 24px 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(80, 106, 82, 0.12), rgba(255, 253, 248, 0.96));
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 10px 28px rgba(83, 58, 36, 0.08);
+    }
+
+    .footer-card h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+    }
+
+    @media (max-width: 980px) {
+      .page-shell {
+        width: min(100% - 22px, var(--content-width));
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        padding: 16px;
+      }
+
+      .hero-meta,
+      .core-list,
+      .safety-list,
+      .pill-grid,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc p {
+        display: none;
+      }
+
+      .toc-list {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        margin: 0 -2px;
+        scroll-snap-type: x proximity;
+      }
+
+      .toc a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(33, 49, 59, 0.08);
+        scroll-snap-align: start;
+      }
+
+      .toc-group {
+        flex: 0 0 auto;
+        min-width: 120px;
+        scroll-snap-align: start;
+      }
+
+      .toc-group summary {
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(33, 49, 59, 0.08);
+      }
+
+      .toc-sublist {
+        padding-left: 0;
+      }
+
+      .toc-group .toc-child {
+        padding: 6px 9px 6px 11px;
+        font-size: 13px;
+        background: rgba(255, 255, 255, 0.46);
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        line-height: 1.68;
+      }
+
+      .page-shell {
+        width: min(100% - 14px, var(--content-width));
+        margin: 12px auto 32px;
+      }
+
+      .hero,
+      .section-card,
+      .footer-card {
+        padding: 18px 14px;
+        border-radius: 20px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(28px, 8.8vw, 36px);
+        line-height: 1.22;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-meta {
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .meta-card,
+      .pill-card,
+      .note,
+      .warning,
+      .source-note,
+      .evidence-card,
+      .evidence-toggle,
+      .references-toggle,
+      .source-list li {
+        padding: 14px;
+        border-radius: 12px;
+      }
+
+      .main-grid,
+      .content {
+        gap: 14px;
+      }
+
+      .toc {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .toc h2 {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .toc a {
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+
+      .section-tag {
+        min-width: 0;
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .section-card h2,
+      .footer-card h2 {
+        margin: 12px 0 8px;
+        font-size: 24px;
+      }
+
+      .subsection {
+        margin-top: 18px;
+        padding-top: 14px;
+      }
+
+      .subsection h3 {
+        margin-bottom: 10px;
+        font-size: 19px;
+        line-height: 1.35;
+      }
+
+      .subsection ul,
+      .subsection ol {
+        padding-left: 18px;
+      }
+
+      .core-list {
+        gap: 10px;
+      }
+
+      .core-list li {
+        padding: 16px 14px 16px 52px;
+        border-radius: 16px;
+      }
+
+      .core-list li::before {
+        left: 14px;
+        top: 16px;
+        width: 28px;
+        height: 28px;
+      }
+
+      .table-wrap {
+        margin-top: 12px;
+        overflow: visible;
+        border: 0;
+        background: transparent;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      table {
+        min-width: 0;
+        background: transparent;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        display: grid;
+        gap: 10px;
+      }
+
+      tr {
+        padding: 12px 12px 6px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(33, 49, 59, 0.08);
+      }
+
+      td {
+        display: grid;
+        grid-template-columns: minmax(64px, 82px) minmax(0, 1fr);
+        gap: 8px;
+        padding: 8px 0;
+        border-bottom: 1px dashed rgba(33, 49, 59, 0.12);
+      }
+
+      td:last-child {
+        border-bottom: 0;
+      }
+
+      .evidence-toggle {
+        padding: 0;
+        background: transparent;
+        border: 0;
+      }
+
+      .evidence-toggle-content {
+        margin-top: 6px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        color: var(--brand-deep);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .fillable-table td.blank-cell {
+        min-height: 76px;
+        display: block;
+      }
+
+      .fillable-table td.large-blank {
+        min-height: 112px;
+      }
+
+      .fillable-table td.blank-cell::before {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page-shell {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .section-card,
+      .footer-card,
+      .toc {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        background: #fff;
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc,
+      .section-card,
+      .footer-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="eyebrow">家庭教育观察工具</div>
+      <h1>儿童学习画像与培养框架</h1>
+      <p>把 VARK、学习策略、学习动机、学习投入和儿童发展标准转译为家庭可用的观察框架，帮助家长找到孩子进入学习的入口，并把观察转成具体陪伴行动。</p>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <strong>适用对象</strong>
+          <span>0-12 岁儿童及主要养育人</span>
+        </div>
+        <div class="meta-card">
+          <strong>使用方式</strong>
+          <span>观察 1-2 周，选择 1-2 个行动点，4 周复盘</span>
+        </div>
+        <div class="meta-card">
+          <strong>依据来源</strong>
+          <span>儿童发展指南、VARK、MSLQ、LASSI、AMS、SEI 等</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <aside class="toc" aria-label="页面目录">
+        <h2>阅读目录</h2>
+        <p>先看警示和框架入口，再按年龄段查看观察重点。</p>
+        <nav class="toc-list">
+          <a href="#why">为什么需要</a>
+          <a href="#safety">重要警示</a>
+          <a href="#overview">框架入口</a>
+          <details class="toc-group">
+            <summary data-target="age-0-3">年龄阶段</summary>
+            <div class="toc-sublist">
+              <a class="toc-child" href="#age-0-3">0-3 岁</a>
+              <a class="toc-child" href="#age-3-6">3-6 岁</a>
+              <a class="toc-child" href="#age-6-12">6-12 岁</a>
+            </div>
+          </details>
+          <a href="#workflow">操作指南</a>
+          <a href="#references">量表与依据</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="section-card" id="why">
+          <span class="section-tag">01 WHY</span>
+          <h2>为什么需要儿童学习画像？</h2>
+          <p class="section-intro">“不专心、不爱学、拖拉、只会背不会用”往往不是单一原因，而是发展状态、任务难度、学习入口、策略、动机和家庭环境共同作用的结果。</p>
+          <div class="quote-box">学习画像不是测类型，而是把模糊判断拆成证据，再转成家庭能执行的小调整。</div>
+
+          <div class="subsection">
+            <h3>只看表面问题，容易把行动带偏</h3>
+            <p>同一个表现，背后的支持方式可能完全不同。与其归因于“懒、粗心、不认真”，不如先看孩子卡在哪一环，再决定调整材料、拆任务、练策略、补动机，还是先排查发展和情绪风险。</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>表面说法</th>
+                    <th>容易误判成</th>
+                    <th>框架要追问什么</th>
+                    <th>对应行动方向</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="表面说法">作业拖拉</td>
+                    <td data-label="容易误判成">态度差、故意磨蹭</td>
+                    <td data-label="框架要追问什么">任务是否太大？孩子是否知道第一步？时间感、专注、焦虑和环境干扰如何？</td>
+                    <td data-label="对应行动方向">拆成可见的小步骤，先启动最小一步，再用计时、检查清单和复盘稳定习惯。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="表面说法">不爱阅读</td>
+                    <td data-label="容易误判成">不爱学习、阅读能力差</td>
+                    <td data-label="框架要追问什么">材料是否超龄？主题是否有兴趣？孩子更容易从听、演、图像还是共读进入？语言基础是否足够？</td>
+                    <td data-label="对应行动方向">先用兴趣主题和多通道入口降低启动难度，再逐步增加复述、讲述和自主阅读。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="表面说法">考试会错简单题</td>
+                    <td data-label="容易误判成">粗心、不认真</td>
+                    <td data-label="框架要追问什么">是否有审题、自测、检查和错题分类策略？是否在时间压力下焦虑？</td>
+                    <td data-label="对应行动方向">建立自测卡、检查顺序和错因分类，而不是只增加同类题量。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="表面说法">背了不会用</td>
+                    <td data-label="容易误判成">理解力差</td>
+                    <td data-label="框架要追问什么">孩子是在记忆答案，还是能解释原因、举例、换情境应用？</td>
+                    <td data-label="对应行动方向">增加解释、举例、改编题、生活任务和项目式输出，推动从表层学习走向理解和迁移。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>这套框架主要帮助家长做三个判断</h3>
+            <ul class="core-list">
+              <li><strong>发展基础是否稳</strong>语言、动作、感官、睡眠、情绪和亲子回应会影响学习表现。0-6 岁尤其要先看里程碑和照护质量。<a class="cite" href="#ref-12">12</a> <a class="cite" href="#ref-13">13</a> <a class="cite" href="#ref-14">14</a></li>
+              <li><strong>从哪里更容易进入</strong>VARK 可提示看、听、读写、动手等入口。入口不是标签，而是降低启动难度的起点。<a class="cite" href="#ref-1">1</a> <a class="cite" href="#ref-16">16</a></li>
+              <li><strong>缺策略、动机还是迁移</strong>学龄儿童常卡在计划、检查、自测、复盘或应用上。相关量表可帮助拆解问题。<a class="cite" href="#ref-4">4</a> <a class="cite" href="#ref-5">5</a> <a class="cite" href="#ref-7">7</a> <a class="cite" href="#ref-8">8</a></li>
+            </ul>
+          </div>
+
+          <div class="subsection" id="why-cases">
+            <h3>场景示例：同一框架如何避免误判</h3>
+            <div class="stage-cards">
+              <article class="stage-card case-card">
+                <h3>2 岁：语言发展慢，但很喜欢动手</h3>
+                <p><strong>容易误判：</strong>把孩子说成“动觉型”，或简单认为“贵人语迟”。</p>
+                <p><strong>框架判断：</strong>先看能否理解简单指令、回应名字、眼神交流、共同注意、模仿动作和声音。动手兴趣可作为互动入口，但不能替代语言和社交观察。</p>
+                <p><strong>家庭行动：</strong>搭积木、倒水、收纳、翻书时同步描述动作；用“看见了什么、想要哪个、轮到谁”制造短互动。若伴随不回应名字、语言倒退等信号，优先咨询专业机构。</p>
+              </article>
+              <article class="stage-card case-card">
+                <h3>5 岁：不爱看书，但喜欢角色扮演</h3>
+                <p><strong>容易误判：</strong>把“不坐下看书”解释成不爱学习。</p>
+                <p><strong>框架判断：</strong>角色扮演说明孩子可能更容易从情境、动作、对话和人物关系进入语言理解，问题可能是阅读入口太单一。</p>
+                <p><strong>家庭行动：</strong>先演故事，再共读图画书；读完用玩偶复述片段，随后画人物或顺序图，最后补一句口头总结。</p>
+              </article>
+              <article class="stage-card case-card">
+                <h3>9 岁：作业拖拉，考试常错简单题</h3>
+                <p><strong>容易误判：</strong>归因于不认真，然后继续加练习和催促。</p>
+                <p><strong>框架判断：</strong>要区分启动困难、任务过大、不会检查、缺少自测、错题不分类，还是时间压力下焦虑。</p>
+                <p><strong>家庭行动：</strong>把作业拆成 10-15 分钟小块；做完用自测卡检查题意、单位、条件和反推；错题只分“没读清、不会做、没检查”三类。</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card" id="safety">
+          <span class="section-tag">02 ALERT</span>
+          <h2>重要警示：先排除风险，再谈学习画像</h2>
+          <p class="section-intro">本框架只用于家庭观察和学习支持。出现明显发展、情绪或行为风险时，应先咨询专业人员。</p>
+          <ul class="safety-list">
+            <li><strong>不是诊断工具</strong>不能替代儿保、心理、康复、语言或教育评估。</li>
+            <li><strong>不要给孩子贴标签</strong>“视觉型”“动觉型”等说法只能作为学习入口观察，不能当作固定类型。</li>
+            <li><strong>不要迷信单一量表</strong>任何量表都只是观察线索，不能单独决定培养方式。</li>
+            <li><strong>先处理明显风险</strong>语言明显落后、社交回避、持续痛苦、严重情绪或行为问题，应尽快寻求专业帮助。</li>
+          </ul>
+          <div class="warning"><strong>使用顺序：</strong>先确认健康、发展、睡眠、情绪和环境基础，再分析学习入口、策略、动机和迁移。</div>
+        </section>
+
+        <section class="section-card" id="overview">
+          <span class="section-tag">03 GUIDE</span>
+          <h2>先选年龄段，再看五维画像</h2>
+          <p class="section-intro">先按年龄进入对应阶段，再用五维画像判断：发展基础、学习入口、学习策略、学习动机、投入与迁移。</p>
+
+          <div class="stage-cards">
+            <article class="stage-card">
+              <h3><a href="#age-0-3">0-3 岁：发展基础优先</a></h3>
+              <p>重点是安全依恋、感知运动、语言萌芽和回应性照护。以里程碑、照护互动和亲子游戏记录为主。</p>
+              <div class="source-note"><strong>先看：</strong>语言、动作、睡眠、情绪、眼神和互动回应；再考虑玩、听、看、摸等学习入口。</div>
+            </article>
+            <article class="stage-card">
+              <h3><a href="#age-3-6">3-6 岁：游戏学习为主</a></h3>
+              <p>重点看孩子如何在游戏、阅读、运动、自然观察和艺术活动中学习，并据此调整活动入口。</p>
+              <div class="source-note"><strong>先看：</strong>健康、语言、社会、科学、艺术五大领域里的参与方式和表达方式。</div>
+            </article>
+            <article class="stage-card">
+              <h3><a href="#age-6-12">6-12 岁：策略和迁移为主</a></h3>
+              <p>关注任务启动、时间管理、复习、自测、动机、挫折反应和知识迁移，把问题拆成可行动的小环节。</p>
+              <div class="source-note"><strong>先看：</strong>作业如何开始、错题如何复盘、是否能解释原因和举生活例子。</div>
+            </article>
+          </div>
+
+          <div class="subsection">
+            <h3>五维画像用来检查什么</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>画像维度</th>
+                    <th>核心问题</th>
+                    <th>家庭观察信号</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="画像维度"><strong>发展基础</strong></td>
+                    <td data-label="核心问题">孩子的身体、语言、社交、认知和情绪是否支持当前任务？</td>
+                    <td data-label="家庭观察信号">睡眠、运动、语言表达、情绪稳定、社交回应。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习入口</strong></td>
+                    <td data-label="核心问题">孩子更容易通过看、听、说、做、写哪种方式开始？</td>
+                    <td data-label="家庭观察信号">看图、听故事、复述、搭建、实验、画图、写下来。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习策略</strong></td>
+                    <td data-label="核心问题">孩子是否会计划、拆分、复述、自测、检查？</td>
+                    <td data-label="家庭观察信号">能否拆任务、做标记、复盘错题、管理时间。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习动机</strong></td>
+                    <td data-label="核心问题">孩子为什么愿意学或不愿意学？</td>
+                    <td data-label="家庭观察信号">兴趣、成就感、陪伴、奖励、压力或明显无动力。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>投入与迁移</strong></td>
+                    <td data-label="核心问题">孩子能否坚持、调整、解释、举例、用到生活中？</td>
+                    <td data-label="家庭观察信号">追问原因、遇难调整、讲清楚思路、迁移应用。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="section-card submodule-card" id="age-0-3">
+          <span class="section-tag">03.1 0-3</span>
+          <h2>0-3 岁：以发展基础和回应性照护为核心</h2>
+          <p class="section-intro">这个阶段先看身体、感官、语言、情绪和依恋关系的发展，以及照护者是否稳定回应孩子。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>维度</th>
+                  <th>家长可以观察什么</th>
+                  <th>建议行动</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="维度"><strong>发展基础</strong></td>
+                  <td data-label="家长可以观察什么">大动作、精细动作、语言理解和表达、睡眠、饮食、情绪</td>
+                  <td data-label="建议行动">结合儿保检查和里程碑观察；明显担心时咨询专业机构</td>
+                </tr>
+                <tr>
+                  <td data-label="维度"><strong>学习入口</strong></td>
+                  <td data-label="家长可以观察什么">喜欢看人脸和图画、听声音和儿歌、触摸、爬行、敲打、搬运</td>
+                  <td data-label="建议行动">提供安全的地板游戏和多感官探索</td>
+                </tr>
+                <tr>
+                  <td data-label="维度"><strong>学习策略</strong></td>
+                  <td data-label="家长可以观察什么">是否重复尝试、模仿动作、探索因果关系</td>
+                  <td data-label="建议行动">少纠正，多示范；让孩子有机会反复尝试</td>
+                </tr>
+                <tr>
+                  <td data-label="维度"><strong>学习动机</strong></td>
+                  <td data-label="家长可以观察什么">是否主动探索，是否对照护者回应有兴趣</td>
+                  <td data-label="建议行动">孩子看、指、笑、发声时及时回应</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note"><strong>家庭做法：</strong>多说话、多回应、多地板游戏、多感官探索、规律作息。用动作带语言，而不是只要求孩子开口。</div>
+        </section>
+
+        <section class="section-card submodule-card" id="age-3-6">
+          <span class="section-tag">03.2 3-6</span>
+          <h2>3-6 岁：以游戏中的学习能力为核心</h2>
+          <p class="section-intro">3-6 岁主要通过游戏、生活、阅读、运动、自然观察和艺术活动学习。观察孩子如何进入、表达和坚持。</p>
+          <div class="pill-grid">
+            <div class="pill-card"><strong>不爱看书，但喜欢角色扮演</strong>先演故事，再共读图画书，最后让孩子讲一遍。</div>
+            <div class="pill-card"><strong>喜欢动手，但不爱表达</strong>先搭建或实验，再让孩子指着作品说“我做了什么”。</div>
+            <div class="pill-card"><strong>坐不住</strong>用短活动、多切换、运动后阅读，不要求长时间静坐。</div>
+            <div class="pill-card"><strong>害怕失败</strong>提供可控难度，允许重来，强调“试了什么方法”。</div>
+          </div>
+
+          <div class="subsection">
+            <h3>五大领域活动入口</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>领域</th>
+                    <th>家庭活动</th>
+                    <th>观察重点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="领域"><strong>健康</strong></td>
+                    <td data-label="家庭活动">跳格子、平衡木、球类、穿衣整理、规律作息</td>
+                    <td data-label="观察重点">动作协调、规则感、身体控制</td>
+                  </tr>
+                  <tr>
+                    <td data-label="领域"><strong>语言</strong></td>
+                    <td data-label="家庭活动">亲子阅读、讲故事、复述一天、看图说话</td>
+                    <td data-label="观察重点">理解、表达、复述、提问</td>
+                  </tr>
+                  <tr>
+                    <td data-label="领域"><strong>社会</strong></td>
+                    <td data-label="家庭活动">角色扮演、轮流游戏、家庭小任务、表达情绪</td>
+                    <td data-label="观察重点">等待、轮流、情绪表达、同伴互动</td>
+                  </tr>
+                  <tr>
+                    <td data-label="领域"><strong>科学</strong></td>
+                    <td data-label="家庭活动">种植物、观察天气、分类收纳、做简单实验</td>
+                    <td data-label="观察重点">好奇、分类、因果、比较</td>
+                  </tr>
+                  <tr>
+                    <td data-label="领域"><strong>艺术</strong></td>
+                    <td data-label="家庭活动">涂画、手工、音乐律动、表演故事</td>
+                    <td data-label="观察重点">表达、想象、节奏、创造</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card submodule-card" id="age-6-12">
+          <span class="section-tag">03.3 6-12</span>
+          <h2>6-12 岁：以学习策略、自我管理和迁移为核心</h2>
+          <p class="section-intro">学龄阶段重点看入口是否合适、策略是否具体、动机是否稳定、能否复盘和迁移。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>表面问题</th>
+                  <th>可能原因</th>
+                  <th>家庭支持</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="表面问题"><strong>作业拖拉</strong></td>
+                  <td data-label="可能原因">任务太大、启动困难、时间感弱、畏难</td>
+                  <td data-label="家庭支持">拆成 10-15 分钟小块；先做最小一步；用可视化进度</td>
+                </tr>
+                <tr>
+                  <td data-label="表面问题"><strong>考试总错简单题</strong></td>
+                  <td data-label="可能原因">自测弱、审题策略弱、焦虑、检查无方法</td>
+                  <td data-label="家庭支持">建立错题分类；做闭卷回忆；训练圈关键词和检查清单</td>
+                </tr>
+                <tr>
+                  <td data-label="表面问题"><strong>背了不会用</strong></td>
+                  <td data-label="可能原因">表层学习多，理解和迁移少</td>
+                  <td data-label="家庭支持">让孩子解释原因、举生活例子、做项目任务</td>
+                </tr>
+                <tr>
+                  <td data-label="表面问题"><strong>一讲就懂，一做就错</strong></td>
+                  <td data-label="可能原因">缺少步骤化策略或独立练习</td>
+                  <td data-label="家庭支持">把例题步骤显性化；让孩子边做边说思路</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="source-note"><strong>多通道模板：</strong>看图示、听讲解、说思路、做实验/模型、写摘要。一个知识点尽量至少组合两到三种通道。</div>
+        </section>
+
+        <section class="section-card" id="workflow">
+          <span class="section-tag">04 ACTION</span>
+          <h2>照着做：家庭操作指南</h2>
+          <p class="section-intro">每次只选 1-2 个优先点，观察 4 周后再调整。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>阶段</th>
+                  <th>家长要做什么</th>
+                  <th>输出</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="阶段"><strong>第 1 步：建立基线</strong></td>
+                  <td data-label="家长要做什么">记录孩子年龄、作息、兴趣、当前困扰</td>
+                  <td data-label="输出">基本信息卡</td>
+                </tr>
+                <tr>
+                  <td data-label="阶段"><strong>第 2 步：观察</strong></td>
+                  <td data-label="家长要做什么">连续 1-2 周记录孩子在玩、听、看、说、做、写中的反应</td>
+                  <td data-label="输出">五维观察表</td>
+                </tr>
+                <tr>
+                  <td data-label="阶段"><strong>第 3 步：画像</strong></td>
+                  <td data-label="家长要做什么">判断主要优势入口、主要困难点、可能原因</td>
+                  <td data-label="输出">学习画像摘要</td>
+                </tr>
+                <tr>
+                  <td data-label="阶段"><strong>第 4 步：行动</strong></td>
+                  <td data-label="家长要做什么">选择最多 2 个改变，例如增加图示、任务拆小、增加复述</td>
+                  <td data-label="输出">家庭支持计划</td>
+                </tr>
+                <tr>
+                  <td data-label="阶段"><strong>第 5 步：复盘</strong></td>
+                  <td data-label="家长要做什么">4 周后看启动难度、坚持时间、情绪、表达、迁移是否改善</td>
+                  <td data-label="输出">调整建议</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <h3>基本信息卡（留白记录）</h3>
+            <div class="table-wrap">
+              <table class="fillable-table">
+                <thead>
+                  <tr>
+                    <th>项目</th>
+                    <th>记录</th>
+                    <th>填写提示</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="项目"><strong>孩子年龄</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">写到月龄或年级，例如 4 岁 8 个月、二年级。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目"><strong>当前主要困扰</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">只写 1-2 个最想解决的问题。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目"><strong>最近睡眠和作息</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">记录入睡、起床、午睡、户外和屏幕时间。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目"><strong>最喜欢的活动</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">玩具、书、运动、主题、角色扮演、实验等。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目"><strong>最抗拒的任务</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">阅读、写字、整理、等待、作业、表达等。</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目"><strong>家长最想改善的一件事</strong></td>
+                    <td data-label="记录" class="blank-cell"></td>
+                    <td data-label="填写提示">尽量写成可观察目标，例如“愿意开始作业”。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>五维观察表（连续 1-2 周留白记录）</h3>
+            <div class="table-wrap">
+              <table class="fillable-table">
+                <thead>
+                  <tr>
+                    <th>画像维度</th>
+                    <th>观察问题</th>
+                    <th>记录</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="画像维度"><strong>发展基础</strong></td>
+                    <td data-label="观察问题">身体、语言、社交、情绪、睡眠是否支持当前学习？</td>
+                    <td data-label="记录" class="blank-cell large-blank"></td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习入口</strong></td>
+                    <td data-label="观察问题">看、听、说、做、写中，哪种方式最容易启动？</td>
+                    <td data-label="记录" class="blank-cell large-blank"></td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习策略</strong></td>
+                    <td data-label="观察问题">是否会计划、拆分、复述、自测、检查？</td>
+                    <td data-label="记录" class="blank-cell large-blank"></td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>学习动机</strong></td>
+                    <td data-label="观察问题">孩子为什么愿意学或不愿意学？</td>
+                    <td data-label="记录" class="blank-cell large-blank"></td>
+                  </tr>
+                  <tr>
+                    <td data-label="画像维度"><strong>投入与迁移</strong></td>
+                    <td data-label="观察问题">是否能坚持、调整、解释、举例、用到生活中？</td>
+                    <td data-label="记录" class="blank-cell large-blank"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>学习画像摘要模板</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>项目</th>
+                    <th>示例</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="项目">当前优势</td>
+                    <td data-label="示例">喜欢动手、愿意讲故事、对自然现象好奇</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目">当前困难</td>
+                    <td data-label="示例">写总结困难，遇到复杂任务容易放弃</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目">可能原因</td>
+                    <td data-label="示例">动手入口强，但读写表达和任务拆解弱</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目">家庭建议</td>
+                    <td data-label="示例">先做实验，再画图，最后写 3 句话；每次任务拆成 10 分钟小块</td>
+                  </tr>
+                  <tr>
+                    <td data-label="项目">复盘指标</td>
+                    <td data-label="示例">是否更愿意开始、能否讲清楚、是否能独立完成一小步</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card" id="references">
+          <span class="section-tag">05 SOURCE</span>
+          <h2>量表与参考依据</h2>
+          <p class="section-intro">量表部分只提炼公开维度和观察逻辑，不复制正式题项。</p>
+          <details class="references-toggle" id="scale-evidence-toggle">
+            <summary>展开量表转译依据</summary>
+            <div class="subsection">
+              <h3>量表依据如何转译为家庭观察</h3>
+            <p class="section-intro">每个量表只抽取核心维度，转译为家庭可观察的问题。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>来源</th>
+                  <th>原本关注点</th>
+                  <th>家庭转译</th>
+                  <th>放入框架的位置</th>
+                  <th>引用</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="来源"><strong>VARK</strong></td>
+                  <td data-label="原本关注点">Visual、Aural、Read/Write、Kinesthetic 四类学习偏好</td>
+                  <td data-label="家庭转译">观察孩子更容易通过图示、讲述、文字还是操作进入学习；同时参考学习风格证据争议，避免简单“匹配教学”。</td>
+                  <td data-label="放入框架的位置">学习入口、材料设计</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-1">1</a>
+                        <a class="citation-badge" href="#ref-16">16</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>Felder-Soloman ILS</strong></td>
+                  <td data-label="原本关注点">主动/反思、感知/直觉、视觉/言语、序列/整体</td>
+                  <td data-label="家庭转译">观察孩子喜欢先做再想还是先理解再动手，喜欢一步步推进还是先看整体。</td>
+                  <td data-label="放入框架的位置">学习入口、学习策略</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-2">2</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>Kolb LSI</strong></td>
+                  <td data-label="原本关注点">具体经验、反思观察、抽象概念化、主动实验</td>
+                  <td data-label="家庭转译">观察孩子是通过体验、观察、概念整理还是尝试实验来理解问题。</td>
+                  <td data-label="放入框架的位置">学习入口、迁移应用</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-3">3</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>MSLQ</strong></td>
+                  <td data-label="原本关注点">动机信念、认知策略、元认知、自我调节、资源管理</td>
+                  <td data-label="家庭转译">观察孩子是否会计划、监控、调整学习过程，而不是只看作业结果。</td>
+                  <td data-label="放入框架的位置">学习策略、学习动机</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-4">4</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>LASSI</strong></td>
+                  <td data-label="原本关注点">时间管理、焦虑、专注、信息加工、自测、考试策略等</td>
+                  <td data-label="家庭转译">把“拖拉、粗心、不会复习”拆成时间管理、自测、检查和焦虑等具体问题。</td>
+                  <td data-label="放入框架的位置">学习策略</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-5">5</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>AMS</strong></td>
+                  <td data-label="原本关注点">内在动机、外在动机、无动机</td>
+                  <td data-label="家庭转译">区分孩子是因兴趣、成就、奖励、压力，还是不知道为什么而学习。</td>
+                  <td data-label="放入框架的位置">学习动机</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-6">6</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>ASSIST / R-SPQ-2F</strong></td>
+                  <td data-label="原本关注点">深层学习、策略性学习、表层学习</td>
+                  <td data-label="家庭转译">观察孩子是在理解、解释、迁移，还是只为完成、背诵和应付。</td>
+                  <td data-label="放入框架的位置">学习投入与迁移</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-7">7</a>
+                        <a class="citation-badge" href="#ref-8">8</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="来源"><strong>SEI</strong></td>
+                  <td data-label="原本关注点">认知投入、心理投入、师生/同伴关系支持</td>
+                  <td data-label="家庭转译">观察孩子是否愿意持续参与、是否感到被支持，以及关系环境是否影响学习投入。</td>
+                  <td data-label="放入框架的位置">学习投入、环境支持</td>
+                  <td data-label="引用">
+                    <details class="evidence-toggle">
+                      <summary>查看依据</summary>
+                      <div class="evidence-toggle-content">
+                        <a class="citation-badge" href="#ref-9">9</a>
+                      </div>
+                    </details>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+            </div>
+            <div class="source-note">
+              <strong>提炼边界：</strong>家庭使用只取“观察维度”和“问题拆解逻辑”，不把单次观察解释为稳定人格或能力结论。
+            </div>
+
+            <div class="evidence-grid">
+              <div class="evidence-card">
+                <strong>为什么强调“不贴标签”</strong>
+                <p>VARK 可作为反思学习偏好的工具，但学习风格匹配假说缺少强证据支持，因此框架把偏好定义为入口，而不是固定类型。<a class="cite" href="#ref-16">16</a></p>
+              </div>
+              <div class="evidence-card">
+                <strong>为什么低龄儿童先看发展</strong>
+                <p>0-6 岁儿童的学习与健康、动作、语言、社会情绪和照护质量高度相关，需优先看发展基础和回应性照护。<a class="cite" href="#ref-12">12</a> <a class="cite" href="#ref-13">13</a> <a class="cite" href="#ref-14">14</a></p>
+              </div>
+              <div class="evidence-card">
+                <strong>为什么 6-12 岁看策略</strong>
+                <p>学龄阶段逐步进入明确学科任务，计划、复习、自测、时间管理和动机调节会直接影响学习质量。<a class="cite" href="#ref-4">4</a> <a class="cite" href="#ref-5">5</a></p>
+              </div>
+            </div>
+          </details>
+          <details class="references-toggle" id="references-toggle">
+            <summary>展开量表依据与参考来源</summary>
+            <ol class="source-list">
+              <li id="ref-1"><strong>[1] VARK Learn.</strong> VARK modalities and strategies. <a href="https://vark-learn.com/introduction-to-vark/" target="_blank" rel="noopener">Introduction to VARK</a>；<a href="https://vark-learn.com/strategies/" target="_blank" rel="noopener">VARK Strategies</a></li>
+              <li id="ref-2"><strong>[2] Felder, R. M., & Soloman, B. A.</strong> Index of Learning Styles. <a href="https://learningstyles.webtools.ncsu.edu/" target="_blank" rel="noopener">NC State ILS</a></li>
+              <li id="ref-3"><strong>[3] Kolb, D. A.</strong> Experiential learning and Kolb Learning Style Inventory. <a href="https://learningfromexperience.com/research-library/the-kolb-learning-style-inventory-4-0/" target="_blank" rel="noopener">Kolb Learning Style Inventory 4.0</a></li>
+              <li id="ref-4"><strong>[4] Pintrich, P. R., Smith, D. A. F., Garcia, T., & McKeachie, W. J. (1991).</strong> A Manual for the Use of the Motivated Strategies for Learning Questionnaire (MSLQ). <a href="https://files.eric.ed.gov/fulltext/ED338122.pdf" target="_blank" rel="noopener">ERIC PDF</a></li>
+              <li id="ref-5"><strong>[5] H&H Publishing.</strong> Learning and Study Strategies Inventory, 3rd Edition. <a href="https://www.hhpublishing.com/ap/_assessments/LASSI-3rd-Edition.html" target="_blank" rel="noopener">LASSI 3rd Edition</a></li>
+              <li id="ref-6"><strong>[6] Vallerand, R. J., et al. (1992).</strong> The Academic Motivation Scale: A Measure of Intrinsic, Extrinsic, and Amotivation in Education. <a href="https://doi.org/10.1177/0013164492052004025" target="_blank" rel="noopener">DOI</a></li>
+              <li id="ref-7"><strong>[7] Tait, H., Entwistle, N. J., & McCune, V.</strong> Approaches and Study Skills Inventory for Students (ASSIST). <a href="https://www.etl.tla.ed.ac.uk/questionnaires/ASSIST.pdf" target="_blank" rel="noopener">ASSIST questionnaire</a></li>
+              <li id="ref-8"><strong>[8] Biggs, J., Kember, D., & Leung, D. Y. P. (2001).</strong> The revised two-factor Study Process Questionnaire: R-SPQ-2F. <a href="https://doi.org/10.1348/000709901158433" target="_blank" rel="noopener">DOI</a></li>
+              <li id="ref-9"><strong>[9] Appleton, J. J., Christenson, S. L., Kim, D., & Reschly, A. L. (2006).</strong> Measuring cognitive and psychological engagement: Validation of the Student Engagement Instrument. <a href="https://doi.org/10.1016/j.jsp.2006.04.002" target="_blank" rel="noopener">DOI</a></li>
+              <li id="ref-10"><strong>[10] Brookes Publishing.</strong> Ages & Stages Questionnaires, Third Edition (ASQ-3). <a href="https://products.brookespublishing.com/Ages-Stages-Questionnaires-Third-Edition-ASQ-3-P569.aspx" target="_blank" rel="noopener">ASQ-3 official page</a></li>
+              <li id="ref-11"><strong>[11] CDC.</strong> Developmental Milestones. <a href="https://www.cdc.gov/act-early/milestones/index.html" target="_blank" rel="noopener">CDC Milestones</a></li>
+              <li id="ref-12"><strong>[12] WHO.</strong> Nurturing Care Framework. <a href="https://www.who.int/teams/maternal-newborn-child-adolescent-health-and-ageing/child-health/nurturing-care" target="_blank" rel="noopener">WHO Nurturing Care</a></li>
+              <li id="ref-13"><strong>[13] 国家卫生健康委.</strong> 《3岁以下婴幼儿健康养育照护指南（试行）》。<a href="https://www.gov.cn/zhengce/zhengceku/2022-11/29/content_5729421.htm" target="_blank" rel="noopener">国务院政策库</a></li>
+              <li id="ref-14"><strong>[14] 教育部.</strong> 《3-6岁儿童学习与发展指南》资料页。<a href="https://www.edu.cn/html/e/etfz/index.shtml" target="_blank" rel="noopener">中国教育和科研计算机网专题</a></li>
+              <li id="ref-15"><strong>[15] 教育部.</strong> 《义务教育课程方案和课程标准（2022年版）》。<a href="https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html" target="_blank" rel="noopener">教育部通知</a></li>
+              <li id="ref-16"><strong>[16] Pashler, H., McDaniel, M., Rohrer, D., & Bjork, R. (2008).</strong> Learning Styles: Concepts and Evidence. <a href="https://doi.org/10.1111/j.1539-6053.2009.01038.x" target="_blank" rel="noopener">DOI</a></li>
+            </ol>
+          </details>
+        </section>
+
+        <footer class="footer-card">
+          <h2>使用提示</h2>
+          <p>建议先填写基本信息卡和五维观察表，再选择一个月内最值得调整的 1-2 个行动点。</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.toc-group summary[data-target]').forEach((summary) => {
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+        const group = summary.closest('details');
+        const target = document.getElementById(summary.dataset.target);
+        if (group) {
+          group.open = true;
+        }
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', `#${target.id}`);
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#ref-"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const references = document.getElementById('references-toggle');
+        if (references) {
+          references.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
