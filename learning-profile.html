@@ -44,6 +44,7 @@
         linear-gradient(180deg, #f6efe3 0%, #f7f1e8 22%, #f4eee4 100%);
       font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
       line-height: 1.75;
+      overflow-x: hidden;
     }
 
     a {
@@ -158,6 +159,7 @@
       gap: 24px;
       margin-top: 24px;
       align-items: start;
+      min-width: 0;
     }
 
     .toc {
@@ -169,6 +171,7 @@
       border: 1px solid rgba(33, 49, 59, 0.08);
       box-shadow: 0 12px 30px rgba(73, 50, 33, 0.08);
       backdrop-filter: blur(10px);
+      min-width: 0;
     }
 
     .toc h2 {
@@ -264,6 +267,7 @@
     .content {
       display: grid;
       gap: 22px;
+      min-width: 0;
     }
 
     .section-card {
@@ -272,6 +276,8 @@
       background: rgba(255, 253, 248, 0.96);
       border: 1px solid rgba(33, 49, 59, 0.08);
       box-shadow: 0 12px 32px rgba(83, 58, 36, 0.08);
+      min-width: 0;
+      overflow-wrap: break-word;
     }
 
     .section-tag {
@@ -729,15 +735,16 @@
       }
 
       .page-shell {
-        width: min(100% - 14px, var(--content-width));
+        width: calc(100% - 24px);
         margin: 12px auto 32px;
       }
 
       .hero,
       .section-card,
       .footer-card {
-        padding: 18px 14px;
+        padding: 16px 12px;
         border-radius: 20px;
+        overflow-wrap: anywhere;
       }
 
       .hero {
@@ -775,21 +782,83 @@
       .main-grid,
       .content {
         gap: 14px;
+        min-width: 0;
       }
 
       .toc {
-        padding: 12px;
+        padding: 0;
         border-radius: 18px;
+        min-width: 0;
+        overflow: hidden;
       }
 
       .toc h2 {
-        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 0;
+        padding: 13px 14px;
         font-size: 16px;
+        cursor: pointer;
+      }
+
+      .toc h2::after {
+        content: "展开";
+        padding: 3px 9px;
+        border-radius: 999px;
+        color: var(--brand-deep);
+        background: rgba(189, 107, 62, 0.1);
+        font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .toc.is-open h2::after {
+        content: "收起";
+      }
+
+      .toc-list {
+        display: none;
+        padding: 0 12px 12px;
+        margin: 0;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .toc.is-open .toc-list {
+        display: grid;
+        gap: 8px;
       }
 
       .toc a {
+        display: block;
+        white-space: normal;
         padding: 9px 12px;
         font-size: 14px;
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(33, 49, 59, 0.08);
+        overflow-wrap: anywhere;
+      }
+
+      .toc-group {
+        min-width: 0;
+      }
+
+      .toc-group summary {
+        padding: 9px 12px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(33, 49, 59, 0.08);
+        overflow-wrap: anywhere;
+      }
+
+      .toc-sublist {
+        padding-left: 0;
+      }
+
+      .toc-group .toc-child {
+        padding: 7px 10px;
+        font-size: 13px;
       }
 
       .section-tag {
@@ -872,14 +941,16 @@
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.82);
         border: 1px solid rgba(33, 49, 59, 0.08);
+        min-width: 0;
       }
 
       td {
         display: grid;
-        grid-template-columns: minmax(64px, 82px) minmax(0, 1fr);
+        grid-template-columns: minmax(60px, 78px) minmax(0, 1fr);
         gap: 8px;
         padding: 8px 0;
         border-bottom: 1px dashed rgba(33, 49, 59, 0.12);
+        overflow-wrap: anywhere;
       }
 
       td:last-child {
@@ -1648,13 +1719,33 @@
     </div>
   </div>
   <script>
+    document.querySelectorAll('.toc h2').forEach((heading) => {
+      heading.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 720px)').matches) {
+          heading.closest('.toc')?.classList.toggle('is-open');
+        }
+      });
+    });
+
+    document.querySelectorAll('.toc a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 720px)').matches) {
+          link.closest('.toc')?.classList.remove('is-open');
+        }
+      });
+    });
+
     document.querySelectorAll('.toc-group summary[data-target]').forEach((summary) => {
       summary.addEventListener('click', (event) => {
         event.preventDefault();
         const group = summary.closest('details');
+        const toc = summary.closest('.toc');
         const target = document.getElementById(summary.dataset.target);
         if (group) {
           group.open = true;
+        }
+        if (window.matchMedia('(max-width: 720px)').matches) {
+          toc?.classList.add('is-open');
         }
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });

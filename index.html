@@ -76,6 +76,7 @@
       line-height: 0.98;
       letter-spacing: 0;
       color: var(--ink);
+      max-width: 100%;
       z-index: 1;
     }
 
@@ -170,18 +171,18 @@
 
     @media (max-width: 720px) {
       main {
-        width: min(100% - 18px, 980px);
+        width: min(100% - 16px, 980px);
         margin: 14px auto 36px;
       }
 
       .hero,
       .card {
-        padding: 18px 14px;
+        padding: 18px 12px;
         border-radius: 18px;
       }
 
       h1 {
-        font-size: clamp(46px, 17vw, 72px);
+        font-size: clamp(40px, 14vw, 56px);
       }
 
       h2 {
