@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaisingWell 家庭教育工具</title>
+  <style>
+    :root {
+      --bg: #f7f1e8;
+      --paper: #fffdf8;
+      --ink: #21313b;
+      --muted: #5d6b71;
+      --brand: #bd6b3e;
+      --brand-deep: #8e4f2c;
+      --leaf: #506a52;
+      --shadow: 0 18px 48px rgba(66, 42, 22, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(215, 164, 71, 0.2), transparent 30%),
+        linear-gradient(180deg, #f6efe3 0%, var(--bg) 100%);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    main {
+      width: min(100% - 32px, 980px);
+      margin: 36px auto 64px;
+    }
+
+    .hero {
+      padding: 40px;
+      border-radius: 28px;
+      background: rgba(255, 253, 248, 0.94);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: var(--brand-deep);
+      background: rgba(189, 107, 62, 0.1);
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.16;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .card {
+      display: block;
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(255, 253, 248, 0.95);
+      border: 1px solid rgba(33, 49, 59, 0.08);
+      box-shadow: 0 12px 30px rgba(73, 50, 33, 0.08);
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(189, 107, 62, 0.28);
+      background: #fffaf1;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brand-deep);
+      font-family: "Source Han Serif SC", "Noto Serif SC", "STSong", serif;
+      font-size: 24px;
+    }
+
+    .card span {
+      display: block;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        width: min(100% - 18px, 980px);
+        margin: 14px auto 36px;
+      }
+
+      .hero,
+      .card {
+        padding: 18px 14px;
+        border-radius: 18px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .card strong {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">RaisingWell</div>
+      <h1>家庭教育与儿童发展工具</h1>
+      <p>面向家庭使用的静态资料页。提交到 GitHub Pages 后，这里的页面可以直接通过浏览器访问。</p>
+    </section>
+
+    <section class="cards" aria-label="页面入口">
+      <a class="card" href="learning-profile.html">
+        <strong>儿童学习画像与培养框架</strong>
+        <span>从发展观察到学习支持，帮助家长判断学习入口、策略、动机和迁移。</span>
+      </a>
+      <a class="card" href="infant-care.html">
+        <strong>3岁以下婴幼儿健康养育照护操作指南</strong>
+        <span>围绕日常照护、发育监测、营养喂养、交流玩耍和风险预防整理。</span>
+      </a>
+    </section>
+
+    <footer>发布设置建议：GitHub Pages 选择 gh-pages 分支，目录选择 /root。</footer>
+  </main>
+</body>
+</html>
